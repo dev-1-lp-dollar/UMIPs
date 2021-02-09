@@ -20,7 +20,51 @@ The LP Dollar team will use the uni-V2-WBTC-ETH price identifier to enable fixed
 
 ## MARKETS & DATA SOURCES
 
-To-Do.
+| Uniswap V2 WBTC-ETH   |                                                                                                 |
+|------------|------------------------------------------------------------------------------------------------------------------- |
+| Contract Address | [0xBb2b8038a1640196FbE3e38816F3e67Cba72D940](https://etherscan.io/address/0xbb2b8038a1640196fbe3e38816f3e67cba72d940) |
+| Decimals | 18 |
+| Token0 Symbol  | WBTC  |
+| Token0 Address  | 0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599                                                                  |
+| Token0 Decimals  | 8                                                                  |
+| Token1 Symbol  | WETH  |
+| Token1  | 0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2                                                                   |
+| Token1 Decimals  | 18                                                                  |
+
+1) First, the Uniswap V2 WBTC-ETH pool must be queried to get the reserve balances claimable by each LP share. This query can be constructed with the Uniswap V2 subgraph or an Ethereum archive node using the metadata above.    
+  
+     Fetching claimable reserves via the [Uniswap V2 subgraph](https://thegraph.com/explorer/subgraph/uniswap/uniswap-v2):  
+     
+     Request
+     ``` graphql
+     {
+      pair(
+        id: "0xbb2b8038a1640196fbe3e38816f3e67cba72d940",  
+        block:{number: 11824935}
+      ) {
+          id
+          reserve0
+          reserve1
+     }
+     ```
+     
+     Response
+     ``` json
+     {
+       "data": {
+         "pair": {
+           "id": "0xbb2b8038a1640196fbe3e38816f3e67cba72d940",
+           "reserve0": "3667.03647028",
+           "reserve1": "97499.896966146357068372"
+         }
+       }
+     }
+     ```
+     
+     
+
+
+
 
 ## PRICE FEED IMPLEMENTATION
 
