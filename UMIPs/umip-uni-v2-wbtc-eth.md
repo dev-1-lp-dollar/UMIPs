@@ -35,12 +35,12 @@ The LP Dollar team will use the uni-V2-WBTC-ETH price identifier to enable fixed
   
      Fetching claimable reserves via the [Uniswap V2 subgraph](https://thegraph.com/explorer/subgraph/uniswap/uniswap-v2):  
      
-     Request
+     GraphQL Request
      ``` graphql
      {
       pair(
         id: "0xbb2b8038a1640196fbe3e38816f3e67cba72d940",  
-        block:{number: 11824935}
+        block: {number: 11824935}
       ) {
           id
           reserve0
@@ -48,7 +48,7 @@ The LP Dollar team will use the uni-V2-WBTC-ETH price identifier to enable fixed
      }
      ```
      
-     Response
+     JSON Response
      ``` json
      {
        "data": {
@@ -61,10 +61,24 @@ The LP Dollar team will use the uni-V2-WBTC-ETH price identifier to enable fixed
      }
      ```
      
+     Fetching claimable reserves via an archive node with [web3.js](https://web3js.readthedocs.io/en/v1.3.0/):
      
-
-
-
+     web3.js Call
+     ``` javascript
+     let pair = new web3.eth.Contract(abi, "0xBb2b8038a1640196FbE3e38816F3e67Cba72D940");
+     let reserves = await pair.methods.getReserves().call({}, 11824935);
+     ```
+     
+     web3.js Response Object
+     ```
+     Result {
+      '0': '366703647028',
+      '1': '97499896966146357068372',
+      '2': '1612909138',
+      reserve0: '366703647028',
+      reserve1: '97499896966146357068372',
+      blockTimestampLast: '1612909138' }
+    ```
 
 ## PRICE FEED IMPLEMENTATION
 
