@@ -123,7 +123,7 @@ The LP Dollar team will use the uni-V2-WBTC-ETH price identifier to enable fixed
      167105037364529719
      ```
 
-3) Third, query the price of USDETH. The price of USDETH is used to calculate the value of the claimable WETH reserves. The methodology is similar to [UMIP-6](https://github.com/UMAprotocol/UMIPs/blob/master/UMIPs/umip-6.md), with a different exchange list and decimal precision.  
+3) Third, the price of USDETH must be queried. The price of USDETH is used to calculate the value of the claimable WETH reserves. The methodology is similar to [UMIP-6](https://github.com/UMAprotocol/UMIPs/blob/master/UMIPs/umip-6.md), with a different exchange list and decimal precision.  
 
     Base Currency: USD  
     Quote Currency: ETH  
@@ -136,7 +136,7 @@ The LP Dollar team will use the uni-V2-WBTC-ETH price identifier to enable fixed
     Pricing Interval: 60 seconds  
     Dispute timestamp rounding: down  
     
-4) Fourth, query the price of USDBTC. The price of USDBTC is used to calculate the value of the claimable WBTC reserves. The methodology is similar to [UMIP-7](https://github.com/UMAprotocol/UMIPs/blob/master/UMIPs/umip-7.md), with a different exchange list and decimal precision.  
+4) Fourth, the price of USDBTC must be queried. The price of USDBTC is used to calculate the value of the claimable WBTC reserves. The methodology is similar to [UMIP-7](https://github.com/UMAprotocol/UMIPs/blob/master/UMIPs/umip-7.md), with a different exchange list and decimal precision.  
 
     Base Currency: USD  
     Quote Currency: BTC  
