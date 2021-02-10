@@ -220,6 +220,6 @@ Adding this new price identifier by itself should not effect the security to the
 
 The UNI-V2-WBTC-ETH pool is one of the most liquid ($345 million AUM) and widely used CFMMs in existence. The Uniswap smart contracts are among the highest quality in decentralized finance, safely locking up and handling billions of dollars in different assets.
 
-Uniswap as a price feed is online 24/7 with no downtime as it's a protocol hosted on the Ethereum blockchain. Therefore, there will be no forced existence of time gaps in price data - it will always be available
+Uniswap as a price feed is online 24/7 with no downtime as it's a protocol hosted on the Ethereum blockchain. Therefore, there will be no forced existence of time gaps in price data - it will always be available.
 
 The USD/WBTC-ETH pair is susceptible to price volatility, and has moved in the ranges of 10-30% within 24 hours, with the more extreme side of the range highly unlikely, but still possible. A high collateralization requirement (120%+) should be set to mitigate this potential volatility risk.
