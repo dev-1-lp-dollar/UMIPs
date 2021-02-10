@@ -165,7 +165,7 @@ The LP Dollar team will use the USD-UNI-V2-WBTC-ETH price identifier to enable f
     
     After finding the median BTC:USD price, calculate the USD value of the WBTC reserves.
     
-    Example calculation with Median BTCUSD = 45938.30:
+    Example calculation with Median BTC:USD = 45938.30:
     
     ```
     USD value of total WBTC reserves = WBTC in reserves * BTC:USD
