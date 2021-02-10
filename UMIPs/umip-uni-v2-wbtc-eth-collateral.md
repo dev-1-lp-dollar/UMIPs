@@ -6,7 +6,7 @@
 | Status     | Draft                                                                                                                                    |
 | Created    | February 09, 2021                                                                                                                        |
  
-## Summary (2-5 sentences)
+## Summary
 This UMIP will add UNI V2 WBTC-ETH LP tokens as an approved collateral currency. This will involve adding the currency to the whitelist and adding a flat final fee to charge per-request. The proposed final fee is 0.00000025 UNI V2 WBTC/ETH LP per request, as the USD price of UNI V2 WBTC/ETH is ~$2009388526, this roughly translates to a little over $500 USD.
 
 ## Motivation
@@ -30,7 +30,7 @@ The rationale behind this change is giving deployers more useful collateral curr
 
 This change has no implementation other than proposing the two aforementioned governance transactions that will be proposed.
 
-## Security considerations
+## Security Considerations
 Since the underlying tokens ETH and WBTC are persistently valuable tokens, including the packaged version from the Uniswap product as supported collateral currencies should impose no additional risk to the protocol.
 
 The main implication is for contract deployers and users who are considering using contracts with this asset as the collateral currency. They should recognize and accept the volatility risk of using this, and ensure appropriate required collateralization rations (120%+), as well as a network of liquidator and support bots to ensure solvency.
