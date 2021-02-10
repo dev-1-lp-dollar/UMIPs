@@ -165,7 +165,7 @@ The LP Dollar team will use the USD-UNI-V2-WBTC-ETH price identifier to enable f
     
     After finding the median BTC:USD price, calculate the USD value of the WBTC reserves.
     
-    Example calculation with Median BTC:USD = 45938.30:
+    Example calculation with Median BTCUSD = 45938.30:
     
     ```
     USD value of total WBTC reserves = WBTC in reserves * BTC:USD
@@ -216,5 +216,10 @@ Rounding: Round to nearest 18 decimal places (nineteenth decimal place digit >= 
 The USD-UNI-V2-WBTC-ETH price identifier will allow Uniswap liquidity providers to mint synthetic tokens in the UMA ecosystem. The first application developed by LP Dollar will allow liquidity providers to borrow against their UNI-V2-WBTC-ETH tokens as collateral at a fixed rate. 
 
 ## Security Considerations
+Adding this new price identifier by itself should not effect the security to the DVM or priceless financial contract users. However, anyone deploying a new priceless token contract referencing this identifier should take care to parameterize the contract appropriately to avoid the loss of funds for synthetic token holders. Additionally, the contract deployer should ensure that there is a network of liquidators and disputers ready to perform the services necessary to keep the contract solvent.
 
-Adding this price identifier should not effect the security of the DVM other than through additional overhead for liquidators and disputers. The UNI-V2-WBTC-ETH pool is one of the most liquid and widely used CFMMs in existence, and Uniswap smart contracts are among the highest quality in decentralized finance. 
+The UNI-V2-WBTC-ETH pool is one of the most liquid ($345 million AUM) and widely used CFMMs in existence. The Uniswap smart contracts are among the highest quality in decentralized finance, safely locking up and handling billions of dollars in different assets.
+
+Uniswap as a price feed is online 24/7 with no downtime as it's a protocol hosted on the Ethereum blockchain. Therefore, there will be no forced existence of time gaps in price data - it will always be available
+
+The USD/WBTC-ETH pair is susceptible to price volatility, and has moved in the ranges of 10-30% within 24 hours, with the more extreme side of the range highly unlikely, but still possible. A high collateralization requirement (120%+) should be set to mitigate this potential volatility risk.
