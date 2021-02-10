@@ -125,32 +125,31 @@ The LP Dollar team will use the uni-V2-WBTC-ETH price identifier to enable fixed
 
 3) Third, query the price of USDETH. The price of USDETH is used to calculate the value of the claimable WETH reserves. The methodology is similar to [UMIP-6](https://github.com/UMAprotocol/UMIPs/blob/master/UMIPs/umip-6.md), with a different exchange list and decimal precision.  
 
-    Base Currency: USD
-    Quote Currency: ETH
-    Result Processing: 1 / Median ETHUSD
+    Base Currency: USD  
+    Quote Currency: ETH  
+    Result Processing: 1 / Median ETHUSD  
 
-    Exchanges: Coinbase Pro (ETHUSD), Kraken (ETHUSD), Bitfinex (ETHUSD), Bitstamp (ETHUSD)
-    Input Processing: None. Human intervention in extreme circumstances where the result differs from broad market consensus.
-    Price Steps: 0.00000001 (8 decimals in more general trading format)
-    Rounding: Closest, 0.5 up
-    Pricing Interval: 60 seconds
-    Dispute timestamp rounding: down
+    Exchanges: Coinbase Pro (ETHUSD), Kraken (ETHUSD), Bitfinex (ETHUSD), Bitstamp (ETHUSD)  
+    Input Processing: None. Human intervention in extreme circumstances where the result differs from broad market consensus.  
+    Price Steps: 0.00000001 (8 decimals in more general trading format)  
+    Rounding: Closest, 0.5 up  
+    Pricing Interval: 60 seconds  
+    Dispute timestamp rounding: down  
     
 4) Fourth, query the price of USDBTC. The price of USDBTC is used to calculate the value of the claimable WBTC reserves. The methodology is similar to [UMIP-7](https://github.com/UMAprotocol/UMIPs/blob/master/UMIPs/umip-7.md), with a different exchange list and decimal precision.  
 
-    Base Currency: USD
-    Quote Currency: BTC
-    Result Processing: 1 / Median BTCUSD
+    Base Currency: USD  
+    Quote Currency: BTC  
+    Result Processing: 1 / Median BTCUSD  
 
-    Exchanges (Market): Coinbase Pro (BTCUSD), Kraken (BTCUSD), Bitfinex (BTCUSD), Bitstamp (BTCUSD)
-    Input Processing: None. Human intervention in extreme circumstances where the result differs from broad market consensus.
-    Price Steps: 0.00000001 (8 decimals in more general trading format)
-    Rounding: Closest, 0.5 up
-    Pricing Interval: 60 seconds
-    Dispute timestamp rounding: down
+    Exchanges (Market): Coinbase Pro (BTCUSD), Kraken (BTCUSD), Bitfinex (BTCUSD), Bitstamp (BTCUSD)  
+    Input Processing: None. Human intervention in extreme circumstances where the result differs from broad market consensus.  
+    Price Steps: 0.00000001 (8 decimals in more general trading format)  
+    Rounding: Closest, 0.5 up  
+    Pricing Interval: 60 seconds  
+    Dispute timestamp rounding: down  
     
-
-
+    
 ## TECHNICAL SPECIFICATIONS
 
 To-Do.
