@@ -198,4 +198,4 @@ The UNI-V2-USDC-ETH pool is one of the most liquid ($301 million AUM) and widely
 
 Uniswap as a price feed is online 24/7 with no downtime as it's a protocol hosted on the Ethereum blockchain. Therefore, there will be no forced existence of time gaps in price data - it will always be available.
 
-The USD/ETH pair is susceptible to price volatility, and has moved in the ranges of 10-30% within 24 hours, with the more extreme side of the range highly unlikely, but still possible. A high collateralization requirement (120%+) should be set to mitigate this potential volatility risk.
+The USD/USDC-ETH pair is susceptible to price volatility, and has moved in the ranges of 10-15% within 24 hours, with the more extreme side of the range highly unlikely, but still possible. A high collateralization requirement (120%+) should be set to mitigate this potential volatility risk.
