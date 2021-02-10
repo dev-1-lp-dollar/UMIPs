@@ -180,16 +180,16 @@ The LP Dollar team will use the USD-UNI-V2-USDC-ETH price identifier to enable f
 
 ## Technical Specifications
 
-Price Identifier Name: USD-UNI-V2-USD-ETH  
+Price Identifier Name: USD-UNI-V2-USDC-ETH  
 Base Currency: USD  
-Quote currency: UNI-V2-USD-ETH  
-Intended Collateral Currency: UNI-V2-USD-ETH  
+Quote currency: UNI-V2-USDC-ETH  
+Intended Collateral Currency: UNI-V2-USDC-ETH  
 Collateral Decimals: 18  
 Rounding: Round to nearest 18 decimal places (nineteenth decimal place digit >= 5 rounds up and < 5 rounds down)  
 
 ## Rationale
 
-The USD-UNI-V2-USD-ETH price identifier will allow Uniswap liquidity providers to mint synthetic tokens in the UMA ecosystem. The first application developed by LP Dollar will allow liquidity providers to borrow against their UNI-V2-USDC-ETH tokens as collateral at a fixed rate. 
+The USD-UNI-V2-USDC-ETH price identifier will allow Uniswap liquidity providers to mint synthetic tokens in the UMA ecosystem. The first application developed by LP Dollar will allow liquidity providers to borrow against their UNI-V2-USDC-ETH tokens as collateral at a fixed rate. 
 
 ## Security Considerations
 Adding this new price identifier by itself should not effect the security to the DVM or priceless financial contract users. However, anyone deploying a new priceless token contract referencing this identifier should take care to parameterize the contract appropriately to avoid the loss of funds for synthetic token holders. Additionally, the contract deployer should ensure that there is a network of liquidators and disputers ready to perform the services necessary to keep the contract solvent.
