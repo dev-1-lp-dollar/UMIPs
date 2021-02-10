@@ -186,7 +186,7 @@ The LP Dollar team will use the USD-UNI-V2-WBTC-ETH price identifier to enable f
   
     = 2009388525.6835613
     ```
-6) Finally, invert UNI-V2-WBTC-ETH:USD to calculate USD:UNI-V2-WBTC-ETH and scale it by 1e18, chopping off any trailing decimals:
+6) Finally, invert UNI-V2-WBTC-ETH:USD to calculate USD:UNI-V2-WBTC-ETH and scale it by 1e18, rounding any trailing decimals:
 
     Example final calculation:
   
@@ -204,7 +204,12 @@ The LP Dollar team will use the USD-UNI-V2-WBTC-ETH price identifier to enable f
 
 ## TECHNICAL SPECIFICATIONS
 
-To-Do.
+Price Identifier Name: USD-UNI-V2-WBTC-ETH
+Base Currency: USD
+Quote currency: UNI-V2-WBTC-ETH
+Intended Collateral Currency: UNI-V2-WBTC-ETH
+Collateral Decimals: 18
+Rounding: Round to nearest 18 decimal places (nineteenth decimal place digit >= 5 rounds up and < 5 rounds down)
 
 ## RATIONALE
 
