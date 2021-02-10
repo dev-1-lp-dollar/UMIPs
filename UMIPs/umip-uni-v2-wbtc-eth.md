@@ -175,32 +175,32 @@ The LP Dollar team will use the USD-UNI-V2-WBTC-ETH price identifier to enable f
 
 5) Fifth, use the UNI-V2-WBTC-ETH total supply of LP tokens and USD value of reserves to calculate the USD value of each LP token (UNI-V2-WBTC-ETH:USD).
 
-  Example calculation of UNI-V2-WBTC-ETH:USD:
+    Example calculation of UNI-V2-WBTC-ETH:USD:
   
-  ```
-  UNI-V2-WBTC-ETH:USD =
+    ```
+    UNI-V2-WBTC-ETH:USD =
   
-  (USD value of WBTC reserves + USD value of WETH reserves) / UNI-V2-WBTC-ETH total supply of LP tokens)
+    (USD value of WBTC reserves + USD value of WETH reserves) / UNI-V2-WBTC-ETH total supply of LP tokens)
   
-  = (168457421.48266372 + 167321523.18154308) / .167105037364528719
+    = (168457421.48266372 + 167321523.18154308) / .167105037364528719
   
-  = 2009388525.6835613
-  ```
+    = 2009388525.6835613
+    ```
 6) Finally, invert UNI-V2-WBTC-ETH:USD to calculate USD:UNI-V2-WBTC-ETH and scale it by 1e18, chopping off any trailing decimals:
 
-  Example final calculation:
+    Example final calculation:
   
-  ```
-  USD:UNI-V2-WBTC-ETH = 
+    ```
+    USD:UNI-V2-WBTC-ETH = 
   
-  (1 / UNI-V2-WBTC-ETH:USD) * 1e18
+    (1 / UNI-V2-WBTC-ETH:USD) * 1e18
   
-  = (1 / 2009388525.6835613) * 1e18 
+    = (1 / 2009388525.6835613) * 1e18 
   
-  = 497663835.15
+    = 497663835.15
   
-  = 497663835
-  ```
+    = 497663835
+    ```
 
 ## TECHNICAL SPECIFICATIONS
 
