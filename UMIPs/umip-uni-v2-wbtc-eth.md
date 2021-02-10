@@ -81,7 +81,7 @@ The LP Dollar team will use the uni-V2-WBTC-ETH price identifier to enable fixed
       blockTimestampLast: '1612909138' }
     ```
     
-2) Second, the total supply of LP tokens must be queried. The total supply is used to calculate the amount of reserves claimable by each LP token.
+2) Second, the total supply of LP tokens must be queried. The total supply is used to calculate the amount of reserves claimable by each LP token. This query can be constructed with the Uniswap V2 subgraph or an Ethereum archive node.
 
      Fetching total supply via the [Uniswap V2 subgraph](https://thegraph.com/explorer/subgraph/uniswap/uniswap-v2):  
      
