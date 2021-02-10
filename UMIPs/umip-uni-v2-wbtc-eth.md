@@ -6,11 +6,11 @@
 | Status     | Draft                                                                                                                                    |
 | Created    | February 09, 2021   
 
-## SUMMARY
+## Summary
 
 The DVM should support price requests for Uniswap V2 WBTC-ETH LP tokens.
 
-## MOTIVATION
+## Motivation
 
 The DVM currently does not support Uniswap V2 WBTC-ETH LP tokens.
 
@@ -18,7 +18,7 @@ By enabling uni-V2-WBTC-ETH as a price identifier, UMA will open the door for th
 
 The LP Dollar team will use the uni-V2-WBTC-ETH price identifier to enable fixed borrowing costs for Uniswap V2 WBTC-ETH liquidity providers.
 
-## MARKETS & DATA SOURCES
+## Data Sources & Price Feed Implementation
 
 | Uniswap V2 WBTC-ETH   |                                                                                                 |
 |------------|------------------------------------------------------------------------------------------------------------------- |
@@ -121,21 +121,41 @@ The LP Dollar team will use the uni-V2-WBTC-ETH price identifier to enable fixed
      web3.js Response
      ```
      167105037364529719
-    ```
+     ```
 
-## PRICE FEED IMPLEMENTATION
+3) Third, query the price of USDETH. The price of USDETH is used to calculate the value of the claimable WETH reserves. The methodology is similar to [UMIP-6](https://github.com/UMAprotocol/UMIPs/blob/master/UMIPs/umip-6.md), with a different exchange list and decimal precision.  
 
-To-Do.
+    Base Currency: USD
+    Quote Currency: ETH
+    Result Processing: 1 / Median ETHUSD
+
+    Exchanges: Coinbase Pro (ETHUSD), Kraken (ETHUSD), Bitfinex (ETHUSD), Bitstamp (ETHUSD)
+    Input Processing: None. Human intervention in extreme circumstances where the result differs from broad market consensus.
+    Price Steps: 0.00000001 (8 decimals in more general trading format)
+    Rounding: Closest, 0.5 up
+    Pricing Interval: 60 seconds
+    Dispute timestamp rounding: down
+    
+4) Fourth, query the price of USDBTC. The price of USDBTC is used to calculate the value of the claimable WBTC reserves. The methodology is similar to [UMIP-7](https://github.com/UMAprotocol/UMIPs/blob/master/UMIPs/umip-7.md), with a different exchange list and decimal precision.  
+
+    Base Currency: USD
+    Quote Currency: BTC
+    Result Processing: 1 / Median BTCUSD
+
+    Exchanges (Market): Coinbase Pro (BTCUSD), Kraken (BTCUSD), Bitfinex (BTCUSD), Bitstamp (BTCUSD)
+    Input Processing: None. Human intervention in extreme circumstances where the result differs from broad market consensus.
+    Price Steps: 0.00000001 (8 decimals in more general trading format)
+    Rounding: Closest, 0.5 up
+    Pricing Interval: 60 seconds
+    Dispute timestamp rounding: down
+    
+
 
 ## TECHNICAL SPECIFICATIONS
 
 To-Do.
 
 ## RATIONALE
-
-To-Do.
-
-## IMPLEMENTATION
 
 To-Do.
 
