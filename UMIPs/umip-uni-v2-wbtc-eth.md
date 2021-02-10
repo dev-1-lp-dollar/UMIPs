@@ -202,16 +202,16 @@ The LP Dollar team will use the USD-UNI-V2-WBTC-ETH price identifier to enable f
     = 497663835
     ```
 
-## TECHNICAL SPECIFICATIONS
+## Technical Specifications
 
-Price Identifier Name: USD-UNI-V2-WBTC-ETH
-Base Currency: USD
-Quote currency: UNI-V2-WBTC-ETH
-Intended Collateral Currency: UNI-V2-WBTC-ETH
-Collateral Decimals: 18
-Rounding: Round to nearest 18 decimal places (nineteenth decimal place digit >= 5 rounds up and < 5 rounds down)
+Price Identifier Name: USD-UNI-V2-WBTC-ETH  
+Base Currency: USD  
+Quote currency: UNI-V2-WBTC-ETH  
+Intended Collateral Currency: UNI-V2-WBTC-ETH  
+Collateral Decimals: 18  
+Rounding: Round to nearest 18 decimal places (nineteenth decimal place digit >= 5 rounds up and < 5 rounds down)  
 
-## RATIONALE
+## Rationale
 
 To-Do.
 
