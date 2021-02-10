@@ -5,6 +5,7 @@
 | Authors    | Dev-1 (dev-1-lp-dollar), Dev-2 (dev-2-lp-dollar) |
 | Status     | Draft                                                                                                                                    |
 | Created    | February 09, 2021                                                                                                                        |
+| Link to Discourse | [Discourse](https://discourse.umaproject.org/t/add-uni-v2-wbtc-eth-as-a-supported-collateral-currency/149)                        |
  
 ## Summary
 This UMIP will add UNI V2 WBTC-ETH LP tokens as an approved collateral currency. This will involve adding the currency to the whitelist and adding a flat final fee to charge per-request. The proposed final fee is 0.00000025 UNI V2 WBTC/ETH LP per request, as the USD price of UNI V2 WBTC/ETH is ~$2009388526, this roughly translates to a little over $500 USD.
