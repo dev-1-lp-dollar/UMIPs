@@ -1,7 +1,7 @@
 ## Headers
-| UMIP-uni-v2-wbtc-eth-DRAFT    |                                                                                                                                          |
+| UMIP-usd-uni-v2-wbtc-eth-DRAFT    |                                                                                                                                          |
 |------------|------------------------------------------------------------------------------------------------------------------------------------------|
-| UMIP Title | Add uni-V2-WBTC-ETH as a price identifier              |
+| UMIP Title | Add USD-UNI-V2-WBTC-ETH as a price identifier              |
 | Authors    | Dev-1 (dev-1-lp-dollar), Dev-2 (dev-2-lp-dollar) |
 | Status     | Draft                                                                                                                                    |
 | Created    | February 09, 2021   
@@ -14,9 +14,9 @@ The DVM should support price requests for Uniswap V2 WBTC-ETH LP tokens.
 
 The DVM currently does not support Uniswap V2 WBTC-ETH LP tokens.
 
-By enabling uni-V2-WBTC-ETH as a price identifier, UMA will open the door for the creation of synths with CFMM (constant function market maker) LP positions. The Uniswap V2 WBTC-ETH market is one of the largest CFMM pools with $345 million in liquidity supplied as of February 09, 2021. 
+By enabling USD-UNI-V2-WBTC-ETH as a price identifier, UMA will open the door for the creation of synths with CFMM (constant function market maker) LP positions. The Uniswap V2 WBTC-ETH market is one of the largest CFMM pools with $345 million in liquidity supplied as of February 09, 2021. 
 
-The LP Dollar team will use the uni-V2-WBTC-ETH price identifier to enable fixed borrowing costs for Uniswap V2 WBTC-ETH liquidity providers.
+The LP Dollar team will use the USD-UNI-V2-WBTC-ETH price identifier to enable fixed borrowing costs for Uniswap V2 WBTC-ETH liquidity providers.
 
 ## Data Sources & Price Feed Implementation
 
@@ -81,7 +81,7 @@ The LP Dollar team will use the uni-V2-WBTC-ETH price identifier to enable fixed
       blockTimestampLast: '1612909138' }
     ```
     
-2) Second, the total supply of LP tokens must be queried. The total supply is used to calculate the amount of reserves claimable by each LP token. This query can be constructed with the Uniswap V2 subgraph or an Ethereum archive node.
+2) Second, the total supply of LP tokens must be queried. This query can be constructed with the Uniswap V2 subgraph or an Ethereum archive node.
 
      Fetching total supply via the [Uniswap V2 subgraph](https://thegraph.com/explorer/subgraph/uniswap/uniswap-v2):  
      
@@ -123,33 +123,85 @@ The LP Dollar team will use the uni-V2-WBTC-ETH price identifier to enable fixed
      167105037364529719
      ```
 
-3) Third, the price of USDETH must be queried. The price of USDETH is used to calculate the value of the claimable WETH reserves. The methodology is similar to [UMIP-6](https://github.com/UMAprotocol/UMIPs/blob/master/UMIPs/umip-6.md), with a different exchange list and decimal precision.  
+3) Third, the ETHUSD price must be queried and used to calculate the USD value of the WETH reserves. 
 
-    Base Currency: USD  
-    Quote Currency: ETH  
-    Result Processing: 1 / Median ETHUSD  
+    The methodology to query the price of ETHUSD is similar to [UMIP-6](https://github.com/UMAprotocol/UMIPs/blob/master/UMIPs/umip-6.md), with a different exchange list and decimal precision.  
 
-    Exchanges: Coinbase Pro (ETHUSD), Kraken (ETHUSD), Bitfinex (ETHUSD), Bitstamp (ETHUSD)  
+    Base Currency: ETH  
+    Quote Currency: USD  
+
+    Exchanges: Coinbase Pro (ETH:USD), Kraken (ETH:USD), Bitfinex (ETH:USD), Bitstamp (ETH:USD)  
     Input Processing: None. Human intervention in extreme circumstances where the result differs from broad market consensus.  
-    Price Steps: 0.00000001 (8 decimals in more general trading format)  
+    Price Steps: 0.01 (2 decimals in more general trading format)  
+    Rounding: Closest, 0.5 up  
+    Pricing Interval: 60 seconds  
+    Dispute timestamp rounding: down
+    
+    After finding the median ETH:USD price, calculate the USD value of the WETH reserves.
+    
+    Example calculation with Median ETH:USD = 1716.12:
+    
+    ```
+    USD value of WETH reserves = WETH in reserves * WETH:USD = 
+    
+    = 97499.896966146357068372 * 1716.12 
+    
+    = 167321523.18154308
+    ```
+    
+4) Fourth, the BTC:USD price must be queried and used to calculate the USD value of the WBTC reserves. 
+
+    The methodology to query the price of BTC:USD is similar to [UMIP-7](https://github.com/UMAprotocol/UMIPs/blob/master/UMIPs/umip-7.md), with a different exchange list and decimal precision.  
+
+    Base Currency: BTC  
+    Quote Currency: USD  
+
+    Exchanges (Market): Coinbase Pro (BTC:USD), Kraken (BTC:USD), Bitfinex (BTC:USD), Bitstamp (BTC:USD)  
+    Input Processing: None. Human intervention in extreme circumstances where the result differs from broad market consensus.  
+    Price Steps: 0.01 (2 decimals in more general trading format)  
     Rounding: Closest, 0.5 up  
     Pricing Interval: 60 seconds  
     Dispute timestamp rounding: down  
     
-4) Fourth, the price of USDBTC must be queried. The price of USDBTC is used to calculate the value of the claimable WBTC reserves. The methodology is similar to [UMIP-7](https://github.com/UMAprotocol/UMIPs/blob/master/UMIPs/umip-7.md), with a different exchange list and decimal precision.  
-
-    Base Currency: USD  
-    Quote Currency: BTC  
-    Result Processing: 1 / Median BTCUSD  
-
-    Exchanges (Market): Coinbase Pro (BTCUSD), Kraken (BTCUSD), Bitfinex (BTCUSD), Bitstamp (BTCUSD)  
-    Input Processing: None. Human intervention in extreme circumstances where the result differs from broad market consensus.  
-    Price Steps: 0.00000001 (8 decimals in more general trading format)  
-    Rounding: Closest, 0.5 up  
-    Pricing Interval: 60 seconds  
-    Dispute timestamp rounding: down  
+    After finding the median BTC:USD price, calculate the USD value of the WBTC reserves.
     
+    Example calculation with Median BTCUSD = 45938.30:
     
+    ```
+    USD value of total WBTC reserves = WBTC in reserves * BTC:USD
+    
+    = 3667.03647028 * 45938.30 = 168457421.48266372
+    ```
+
+5) Fifth, use the UNI-V2-WBTC-ETH total supply of LP tokens and USD value of reserves to calculate the USD value of each LP token (UNI-V2-WBTC-ETH:USD).
+
+  Example calculation of UNI-V2-WBTC-ETH:USD:
+  
+  ```
+  UNI-V2-WBTC-ETH:USD =
+  
+  (USD value of WBTC reserves + USD value of WETH reserves) / UNI-V2-WBTC-ETH total supply of LP tokens)
+  
+  = (168457421.48266372 + 167321523.18154308) / .167105037364528719
+  
+  = 2009388525.6835613
+  ```
+6) Finally, invert UNI-V2-WBTC-ETH:USD to calculate USD:UNI-V2-WBTC-ETH and scale it by 1e18, chopping off any trailing decimals:
+
+  Example final calculation:
+  
+  ```
+  USD:UNI-V2-WBTC-ETH = 
+  
+  (1 / UNI-V2-WBTC-ETH:USD) * 1e18
+  
+  = (1 / 2009388525.6835613) * 1e18 
+  
+  = 497663835.15
+  
+  = 497663835
+  ```
+
 ## TECHNICAL SPECIFICATIONS
 
 To-Do.
