@@ -31,7 +31,7 @@ The LP Dollar team will use the USD-UNI-V2-WBTC-ETH price identifier to enable f
 | Token1  | 0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2                                                                   |
 | Token1 Decimals  | 18                                                                  |
 
-1) First, the Uniswap V2 WBTC-ETH contract must be queried to get the total reserve balances in the pool. This query can be constructed with the Uniswap V2 subgraph or an Ethereum archive node.    
+1) First, the Uniswap V2 WBTC-ETH contract must be queried to get the total reserve balances in the pool. This query can be constructed with the Uniswap V2 subgraph or an Ethereum archive node. The block number used should be the closest to and before the timestamp of the price request (similar to UMIP-39).    
   
      Fetching total reserves balances via the [Uniswap V2 subgraph](https://thegraph.com/explorer/subgraph/uniswap/uniswap-v2):  
      
@@ -81,7 +81,7 @@ The LP Dollar team will use the USD-UNI-V2-WBTC-ETH price identifier to enable f
       blockTimestampLast: '1612909138' }
     ```
     
-2) Second, the total supply of LP tokens must be queried. This query can be constructed with the Uniswap V2 subgraph or an Ethereum archive node.
+2) Second, the total supply of LP tokens must be queried. This query can be constructed with the Uniswap V2 subgraph or an Ethereum archive node. The block number used should be the closest to and before the timestamp of the price request (similar to UMIP-39).
 
      Fetching total supply via the [Uniswap V2 subgraph](https://thegraph.com/explorer/subgraph/uniswap/uniswap-v2):  
      
@@ -213,7 +213,7 @@ Rounding: Round to nearest 18 decimal places (nineteenth decimal place digit >= 
 
 ## Rationale
 
-To-Do.
+The USD-UNI-V2-WBTC-ETH price identifier will allow Uniswap liquidity providers to mint synthetic tokens in the UMA ecosystem. The first application developed by LP Dollar will allow liquidity providers to borrow against their UNI-V2-WBTC-ETH tokens as collateral at a fixed rate. 
 
 ## Security Considerations
 
