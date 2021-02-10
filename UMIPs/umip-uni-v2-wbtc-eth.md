@@ -156,7 +156,7 @@ The LP Dollar team will use the USD-UNI-V2-WBTC-ETH price identifier to enable f
     Base Currency: BTC  
     Quote Currency: USD  
 
-    Exchanges (Market): Coinbase Pro (BTC:USD), Kraken (BTC:USD), Bitfinex (BTC:USD), Bitstamp (BTC:USD)  
+    Exchanges: Coinbase Pro (BTC:USD), Kraken (BTC:USD), Bitfinex (BTC:USD), Bitstamp (BTC:USD)  
     Input Processing: None. Human intervention in extreme circumstances where the result differs from broad market consensus.  
     Price Steps: 0.01 (2 decimals in more general trading format)  
     Rounding: Closest, 0.5 up  
@@ -217,4 +217,4 @@ The USD-UNI-V2-WBTC-ETH price identifier will allow Uniswap liquidity providers 
 
 ## Security Considerations
 
-To-Do.
+Adding this price identifier should not effect the security of the DVM other than through additional overhead for liquidators and disputers. The UNI-V2-WBTC-ETH pool is one of the most liquid and widely used CFMMs in existence, and Uniswap smart contracts are among the highest quality in decentralized finance. 
