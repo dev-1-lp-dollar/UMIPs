@@ -7,7 +7,7 @@
 | Created    | February 10, 2021                                                                                                                        |
  
 ## Summary
-This UMIP will add UNI V2 USDC-ETH LP tokens as an approved collateral currency. This will involve adding the currency to the whitelist and adding a flat final fee to charge per-request. The proposed final fee is 0.0000000465 UNI V2 WBTC/ETH LP per request, as the USD price of UNI V2 WBTC/ETH is ~$8655321480, this roughly translates to a little over $400 USD.
+This UMIP will add UNI V2 USDC-ETH LP tokens as an approved collateral currency. This will involve adding the currency to the whitelist and adding a flat final fee to charge per-request. The proposed final fee is 0.0000000465 UNI V2 USDC/ETH LP per request, as the USD price of UNI V2 USDC/ETH is ~$8655321480, this roughly translates to a little over $400 USD.
 
 ## Motivation
 UNI V2 USDC-ETH LP tokens represent ownership in one of the largest CFMM (constant function market maker) pools with $301 million in liquidity. The underlying assets of this currency are ETH and USDC. Both are widely used across the cryptocurrency space, and the pair account for a large share of trading volume in decentralized finance.
