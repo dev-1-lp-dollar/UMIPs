@@ -24,7 +24,7 @@ To accomplish this upgrade, two changes need to be made:
 ## Rationale
 The rationale behind this change is giving deployers more useful collateral currency options. This is an advancement into a better type of collateral.
 
-~$400 USD equivalent was chosen as the final fee because it is equal to already approved coins (~$400 USD).
+A $400 USD equivalent was chosen as the final fee because it is equal to already approved coins ($400 USD).
 
 ## Implementation
 
